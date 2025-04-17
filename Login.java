@@ -10,7 +10,7 @@ public class Login {
     }
 
     private boolean checkUsername() {
-        final String pattern = "^(?=.{1,5}$)(?=.*_)[A-Za-z_]*$";
+        final String pattern = "^(?=.{1,5}$)(?=.*_)[A-Za-z0-9_]*$";
         return this.username.matches(pattern);
     }
 

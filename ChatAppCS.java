@@ -15,16 +15,21 @@ public class ChatAppCS {
         String number = scanner.nextLine();
 
         Login newLogin = new Login(username, password, number);
-        System.out.println(newLogin.registerUser());
 
-        System.out.println("Confirm username: ");
-        String confirmUsername = scanner.nextLine();
-        System.out.println("Confirm password: ");
-        String confirmPassword = scanner.nextLine();
-        System.out.println("Confirm number: ");
-        String confirmNumber = scanner.nextLine();
-
-        boolean status = newLogin.loginUser(confirmUsername, confirmPassword, confirmNumber);
-        System.out.println(newLogin.LoginStatus(status));
+        if (newLogin.checkUsername() && newLogin.checkPassword() && newLogin.checkCellPhoneNumber()) {
+            System.out.println(newLogin.registerUser());
+            
+            System.out.println("Confirm username: ");
+            String confirmUsername = scanner.nextLine();
+            System.out.println("Confirm password: ");
+            String confirmPassword = scanner.nextLine();
+            System.out.println("Confirm number: ");
+            String confirmNumber = scanner.nextLine();
+            
+            boolean status = newLogin.loginUser(confirmUsername, confirmPassword, confirmNumber);
+            System.out.println(newLogin.LoginStatus(status));
+        } else {
+            System.out.println(newLogin.registerUser());
+        }
     }
 }
